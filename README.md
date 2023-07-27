@@ -1,6 +1,6 @@
 # Energy Data Analysis and Machine Learning
 
-This repository contains three Jupyter Notebooks that perform data analysis and machine learning tasks on energy data. The goal is to explore, visualize, and predict energy usage and greenhouse gas emissions for different buildings.
+This repository contains Jupyter Notebooks that perform data analysis, preprocessing, and machine learning tasks on energy data. The goal is to explore, visualize, and predict energy usage and greenhouse gas emissions for different buildings.
 
 ## Notebooks
 
@@ -13,23 +13,18 @@ This repository contains three Jupyter Notebooks that perform data analysis and 
    - Convert data types and handle categorical variables.
    - Save the preprocessed data to a new CSV file, `energy_explored.csv`, for further analysis and machine learning tasks.
 
-2. **Data Visualization and Analysis**
-   The notebook `Data_Visualization_and_Analysis.ipynb` builds upon the preprocessed data from the first notebook. It aims to gain insights into energy usage patterns and explore relationships between different variables. The tasks include:
-   - Visualizing energy usage and greenhouse gas emissions using various plots (histograms, box plots, scatter plots, etc.).
-   - Analyzing the correlation between different features and the target variables.
-   - Exploring the relationship between ENERGY STAR Score and energy usage.
-   - Investigating the energy usage patterns across different building types and locations.
-   - Drawing actionable insights from the visualizations for energy conservation and efficiency.
-
-3. **Machine Learning for Energy Prediction**
-   In `Machine_Learning_for_Energy_Prediction.ipynb`, the focus shifts to machine learning tasks for predicting `SiteEnergyUse(kBtu)` and `TotalGHGEmissions`. The notebook includes the following steps:
+2. **Machine Learning for Energy Prediction (Using ENERGYSTARScore)**
+   In `Machine_Learning_with_EnergyScore.ipynb`, we use the `ENERGYSTARScore` as one of the features for predicting `SiteEnergyUse(kBtu)` and `TotalGHGEmissions`. The notebook includes the following steps:
    - Load the preprocessed energy data from `energy_explored.csv`.
-   - Prepare the feature matrix `X` and target vectors `y` and `y0`.
+   - Prepare the feature matrix `X` (including `ENERGYSTARScore`) and target vectors `y` and `y0`.
    - Implement various regression models for the predictions, including Linear Regression, Lasso Regression, Ridge Regression, Elastic Net, Random Forest Regressor, XG Boost, Support Vector Machines (SVR), and Decision Tree Regressor.
    - Optimize the models using hyperparameter tuning with GridSearchCV.
    - Evaluate the models' performance using Root Mean Squared Error (RMSE) and cross-validation.
    - Make predictions for `SiteEnergyUse(kBtu)` and `TotalGHGEmissions` and transform the results back to their original unit.
    - Concatenate the predicted values to the original DataFrame.
+
+3. **Machine Learning for Energy Prediction (Without ENERGYSTARScore)**
+   In `Machine_Learning_without_EnergyScore.ipynb`, we exclude the `ENERGYSTARScore` feature from the predictions of `SiteEnergyUse(kBtu)` and `TotalGHGEmissions`. The notebook follows similar steps as the previous one, but without `ENERGYSTARScore` in the feature matrix `X`.
 
 ## Requirements
 
@@ -43,9 +38,7 @@ The following libraries are required to run the notebooks:
 
 You can install them using the following command:
 
-```
 pip install pandas numpy seaborn matplotlib scikit-learn
-```
 
 ## Usage
 
@@ -53,10 +46,8 @@ To run the notebooks, clone the repository and open Jupyter Notebook on your loc
 
 ## License
 
-This project is licensed under the MIT License. 
+This project is licensed under the MIT License. Feel free to use, modify, and distribute the code for your purposes.
 
 ## Acknowledgments
 
-Special thanks to the dataset source for providing the energy data used in this analysis.
-
-If you have any questions or feedback, feel free to contact me.
+If you have any questions or feedback, feel free to contact me. 
